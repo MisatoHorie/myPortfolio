@@ -1,0 +1,268 @@
+/* フォント埋め込み */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+/* 星のエフェクト */
+/* 星空の背景のスタイル */
+.stars {
+  position: relative;
+  width: 100%; /* 星空の横幅 */
+  overflow: hidden; /* 星が枠外にはみ出すのを防ぐ */
+}
+
+/* 星のスタイル */
+.star {
+  /* background-image:url(assets/star.png);  */
+  position: absolute;
+  display: block;
+  background-color: #ffffff; /*星の色*/
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(#fff, 0.5); /*星の影*/
+  opacity: 0;
+  animation: twinkle 5s infinite;
+}
+
+/* 星がキラキラ光るアニメーション */
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+/* 星のエフェクトここまで */
+
+/* マウスストーカー */
+
+svg {
+  display: none;
+}
+
+.Cursor {
+  pointer-events: none;
+  position: fixed;
+  display: block;
+  border-radius: 0;
+  transform-origin: center center;
+  mix-blend-mode: difference;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  filter: url("#goo");
+}
+
+.Cursor span {
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 20px;
+  background-color: #ffff00;
+  transform-origin: center center;
+  transform: translate(-50%, -50%);
+}
+
+.test-button{
+  text-align: center;
+  width:30%;
+  height:100px
+}
+.test-button a{
+  display: block;
+  background-color: #ffff00;
+}
+
+/* マウスストーカー ここまで */
+
+
+.margin-right-30{
+    margin-right: 30px;
+}
+.margin-right-60{
+    margin-right: 60px;
+}
+.margin-right-80{
+    margin-right: 80px;
+}
+.margin-right-130{
+    margin-right: 130px;
+}
+
+* {
+    /* cursor: none; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+  ul,
+  li {
+    list-style: none;
+  }
+  
+  body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'DotGothic16', sans-serif;
+    font-weight: 900;
+    background-image: url("../assets/background4.png");
+    background-attachment: fixed;
+    background-size: cover;
+    background-size: 100% auto;
+  }
+
+  /* ヘッダー */
+  header{
+    /* position: fixed; */
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 999;
+  }
+
+  
+
+  /* ヘッダータイトル */
+  .header-title-container{
+    text-align: center;
+  }
+
+   .headertitle-img{
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: auto;
+  }
+
+  /* ヘッダーリンク */
+.link{
+    text-align: right;
+    display: inline-block;
+  }
+
+  /* フッター */
+  footer{
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+
+   /* 見出し画像 */
+
+   .headline-container{
+    text-align: center;
+  }
+
+   .headline-img{
+    position: relative;
+    top: 40px;
+    width: 30%;
+    height: auto;
+  }
+  
+  /* 共通 */
+  .section {
+    width: 100%;
+    padding: 100px 0;
+  }
+
+  .container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  /* 作品集のタイトル文字 */
+  .heading {
+    font-size: 50px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+  
+  /* タイトル */
+  .title {
+    padding: 40px 0 20px;
+    font-size: 52px;
+    text-align: center;
+  }
+
+
+  /* セクションに背景を付けたい */
+  .section{
+    background-image: url("../assets/gridLine4.png");
+    background-repeat:no-repeat;
+    background-size: 85% 95%;
+    background-position: center;
+  }
+  
+  /* 普通のセクション */
+  .normal-text {
+    text-shadow: 2px 2px 4px #220033;
+    font-size: 23px;
+    letter-spacing: 0.08em;
+    margin-top: 60px;
+  }
+  
+  /* 横スクロールセクション */
+  .side-scroll {
+    background-color: #1b171780;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .side-scroll-list-wrapper {
+    position: relative;
+    width: 100%;
+    height: 700px;
+  }
+  
+  .side-scroll-list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: flex;
+    gap: 0 60px;
+  }
+  
+  /* 横並びの作品の箱 */
+  .side-scroll-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: none;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    background-color: #000000;
+    min-width: 300px;
+    transition: all 0.3s;
+  }
+  .side-scroll-item:hover{
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  /* 横並び作品画像 */
+  .side-scroll-item img{
+    box-shadow: 0px 0px 25px 5px rgb(255, 255, 255);
+    width:500px;
+    height:auto;
+  }
+
+  
+  .side-scroll-item + .side-scroll-item {
+    margin-left: 60px;
+  }
