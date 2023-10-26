@@ -197,9 +197,37 @@ svg {
     text-align: center;
   }
 
+  /* 酒の画像 */
+  .sake img{
+    position: absolute;
+    bottom:-5px;
+    left:60px;
+    width: 230px;
+    height: auto;
+    transform: scale(1);
+    transition: filter 0.3s;
+  }
+  .sake img:hover{
+    filter: brightness(0.5);
+  }
+
+  /* ダーツの画像 */
+  .darts img{
+    position: absolute;
+    right:50px;
+    top:0px;
+    width: 460px;
+    height: auto;
+    transform: scale(1);
+    transition: filter 0.3s;
+  }
+  .darts img:hover{
+    filter: brightness(0.5);
+  }
 
   /* セクションに背景を付けたい */
   .section{
+    position:relative;
     background-image: url("../assets/gridLine4.png");
     background-repeat:no-repeat;
     background-size: 85% 95%;
@@ -252,7 +280,7 @@ svg {
   }
   .side-scroll-item:hover{
     transform: scale(1.1);
-    opacity: 0.8;
+    filter: brightness(0.5);
   }
 
   /* 横並び作品画像 */
@@ -265,4 +293,10 @@ svg {
   
   .side-scroll-item + .side-scroll-item {
     margin-left: 60px;
+  }
+
+
+  .dartcontent-Comment p{
+    font-size: 50px;
+    text-align: center;
   }
