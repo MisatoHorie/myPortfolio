@@ -17,7 +17,7 @@ img{
 /* 星のエフェクト */
 /* 星空の背景のスタイル */
 .stars {
-  z-index: 5;
+  z-index: 1;
   position: relative;
   width: 100%; /* 星空の横幅 */
   overflow: hidden; /* 星が枠外にはみ出すのを防ぐ */
@@ -166,9 +166,81 @@ svg {
 
   /* フッター */
   footer{
-    height: 300px;
-    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 1);
+    text-align: center;
   }
+
+  .footer-content{
+    padding:30px
+  }
+
+  footer p{
+    font-size: 20px;
+    color:#d5d5d5;
+  }
+
+  .footer-link a{
+    display: inline-block;
+    margin:20px;
+  }
+
+/* フッターのボタン */
+/* ボタンのスタイル */
+.buttonOutlineGradient {
+  text-decoration:none;
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: 64px;
+  padding: 2px;
+  font-family: sans-serif;
+  font-size: 18px;
+  text-align: center;
+  overflow-wrap: anywhere;
+  background: linear-gradient(135deg, #6fa24a, #15a1cc);
+  border-radius: 32px; /* (buttonの高さ / 2) の値 */
+}
+
+.buttonOutlineGradient::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  background: linear-gradient(135deg, #6fa24a, #15a1cc);
+  filter: blur(10px);
+  border-radius: 32px; /* (buttonの高さ / 2) の値 */
+  opacity: 0;
+}
+
+.buttonOutlineGradient_item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background-color: #222;
+  border-radius: 32px; /* (buttonの高さ / 2) の値 */
+}
+
+@media (any-hover: hover) {
+  .buttonOutlineGradient::before {
+    transition: opacity 0.2s;
+    will-change: filter;
+  }
+
+  .buttonOutlineGradient:hover::before {
+    opacity: 1;
+  }
+}
+/* フッターのボタンここまで */
 
 
    /* 見出し画像 */
@@ -179,7 +251,7 @@ svg {
 
    .headline-img{
     position: relative;
-    top: 40px;
+    top: 10px;
     width: 30%;
     height: auto;
   }
@@ -188,6 +260,7 @@ svg {
   .section {
     width: 100%;
     padding: 100px 0;
+    margin:0px 0px;
   }
 
   .container {
@@ -214,15 +287,15 @@ svg {
   /* 酒の画像 */
   .sake img{
     position: absolute;
-    bottom:-5px;
-    left:60px;
-    width: 14%;
+    bottom:10px;
+    left:50px;
+    width: 15%;
     height: auto;
     transform: scale(1) rotate(345deg);
     transition: filter 0.3s;
   }
   .sake img:hover{
-    filter: brightness(0.5);
+    filter: brightness(1.2);
     animation: poyo1 .6s;
   }
 
@@ -230,14 +303,14 @@ svg {
   .darts img{
     position: absolute;
     right:50px;
-    top:0px;
-    width: 18%;
+    top:50px;
+    width: 21%;
     height: auto;
     transform: scale(1) rotate(10deg);
     transition: filter 0.3s;
   }
   .darts img:hover{
-    filter: brightness(0.5);
+    filter: brightness(1.2);
     animation: poyo2 .6s;
   }
 
@@ -271,7 +344,8 @@ svg {
   
   /* 普通のセクション */
   .normal-text {
-    text-shadow: 2px 2px 4px #220033;
+    text-shadow: 0px 0px 4px #000000;
+    font-weight: 600;
     font-size: 23px;
     letter-spacing: 0.08em;
     margin-top: 60px;
@@ -285,12 +359,16 @@ svg {
     justify-content: center;
     align-items: center;
   }
+
+  .side-scroll.section{
+    padding-bottom: 0px;
+  }
   
   
   .side-scroll-list-wrapper {
     position: relative;
     width: 100%;
-    height: 700px;
+    height: 550px;
   }
   
   .side-scroll-list {
@@ -315,8 +393,8 @@ svg {
     transition: all 0.3s;
   }
   .side-scroll-item:hover{
-    transform: scale(1.1);
-    filter: brightness(0.5);
+    transform: scale(1.06);
+    filter: brightness(1.2);
   }
 
   /* 横並び作品画像 */
@@ -337,4 +415,87 @@ svg {
     text-align: center;
   }
 
- /* グリッチ */
+/* モーダル */
+.modal-wrapper {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 60px 10px;
+  text-align: center
+}
+
+.modal-wrapper:not(:target) {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s, visibility .3s;
+}
+
+.modal-wrapper:target {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .4s, visibility .4s;
+}
+
+.modal-wrapper::after {
+  display: inline-block;
+  height: 100%;
+  margin-left: -.05em;
+  vertical-align: middle;
+  content: ""
+}
+
+.modal-wrapper .modal-window {
+  box-sizing: border-box;
+  display: inline-block;
+  z-index: 20;
+  position: relative;
+  width: 70%;
+  max-width: 800px;
+  padding: 30px 30px 15px;
+  border-radius: 2px;
+  background: none;
+  box-shadow: none;
+  vertical-align: middle
+}
+
+.modal-wrapper .modal-window .modal-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-overlay {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .8)
+}
+
+.modal-wrapper .modal-close {
+  z-index: 20;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35px;
+  color: #ffffff !important;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35px;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0
+}
+
+.modal-wrapper .modal-close:hover {
+  color: #a2a2a2 !important
+}
+
+.modal-content p{
+  font-size: 20px;
+}
+/* モーダルCSS */
