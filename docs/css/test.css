@@ -1,9 +1,23 @@
 /* フォント埋め込み */
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
+/* レイヤー */
+p{
+  z-index: 10;
+}
+
+img{
+  z-index: 10;
+}
+
+.side-scroll{
+  z-index: 10;
+}
+
 /* 星のエフェクト */
 /* 星空の背景のスタイル */
 .stars {
+  z-index: 5;
   position: relative;
   width: 100%; /* 星空の横幅 */
   overflow: hidden; /* 星が枠外にはみ出すのを防ぐ */
@@ -202,13 +216,14 @@ svg {
     position: absolute;
     bottom:-5px;
     left:60px;
-    width: 230px;
+    width: 14%;
     height: auto;
-    transform: scale(1);
+    transform: scale(1) rotate(345deg);
     transition: filter 0.3s;
   }
   .sake img:hover{
     filter: brightness(0.5);
+    animation: poyo1 .6s;
   }
 
   /* ダーツの画像 */
@@ -216,22 +231,42 @@ svg {
     position: absolute;
     right:50px;
     top:0px;
-    width: 460px;
+    width: 18%;
     height: auto;
-    transform: scale(1);
+    transform: scale(1) rotate(10deg);
     transition: filter 0.3s;
   }
   .darts img:hover{
     filter: brightness(0.5);
+    animation: poyo2 .6s;
   }
+
+  
+  /* 画像のアニメーション */
+  @keyframes poyo1 {
+    from, to { transform: scale(1) rotate(345deg); }
+    10% { transform: scale(1.2) rotate(345deg); }
+    40% { transform: scale(.9) rotate(345deg); }
+    60% { transform: scale(1.04) rotate(345deg); }
+    80% { transform: scale(.98) rotate(345deg); }
+  }
+
+  @keyframes poyo2 {
+    from, to { transform: scale(1) rotate(10deg); }
+    10% { transform: scale(1.2) rotate(10deg);; }
+    40% { transform: scale(.9) rotate(10deg);; }
+    60% { transform: scale(1.04) rotate(10deg);; }
+    80% { transform: scale(.98) rotate(10deg);; }
+  }
+
 
   /* セクションに背景を付けたい */
   .section{
-    position:relative;
     background-image: url("../assets/gridLine4.png");
-    background-repeat:no-repeat;
     background-size: 85% 95%;
+    background-repeat:no-repeat;
     background-position: center;
+    position:relative;
   }
   
   /* 普通のセクション */
@@ -241,10 +276,11 @@ svg {
     letter-spacing: 0.08em;
     margin-top: 60px;
   }
-  
+
   /* 横スクロールセクション */
   .side-scroll {
     background-color: #1b171780;
+    background-image: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -300,3 +336,5 @@ svg {
     font-size: 50px;
     text-align: center;
   }
+
+ /* グリッチ */
