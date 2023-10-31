@@ -1,9 +1,15 @@
 /* フォント埋め込み */
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
+/* スムーズスクロール */
+html {
+  scroll-behavior: smooth;
+}
+
 /* レイヤー */
 p{
   z-index: 10;
+  /* background-color: rgba(0, 0, 0, 0.3); */
 }
 
 img{
@@ -128,7 +134,7 @@ svg {
     background-color: #000000;
     color: #ffffff;
     font-family: 'DotGothic16', sans-serif;
-    font-weight: 900;
+    font-weight: 400;
     background-image: url("../assets/background4.png");
     background-attachment: fixed;
     background-size: cover;
@@ -555,3 +561,32 @@ svg {
   font-size: 20px;
 }
 /* モーダルCSS */
+
+
+/***追従するトップへ戻るボタン***/
+#page-top {
+  position: fixed;
+  right: 5px;
+  bottom: 20px;
+  height: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transform: rotate(90deg);
+  font-size: 120%;
+  line-height: 1.5rem;
+  color: #ffff00;
+  padding: 0 0 0 35px;
+  border-top: solid 3px;
+}
+#page-top::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -2.5px;
+  left: 0px;
+  width: 15px;
+  border-top: solid 3px;
+  transform: rotate(35deg);
+  transform-origin: left top;
+}
+/***トップへ戻るボタンここまで***/
